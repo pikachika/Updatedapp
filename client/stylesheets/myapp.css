@@ -1,0 +1,8 @@
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }
+
+span{font-weight: bold;}
+
+body{   
+    padding:30px; 
+    background:#FFFFE0;}

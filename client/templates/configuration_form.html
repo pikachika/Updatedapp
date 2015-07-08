@@ -1,0 +1,171 @@
+<template name="clientInput">
+  <table class="fixed">
+    <col width="800px" />
+    <br>
+    <br>
+    <br>
+    <form id="myForm" onsubmit="alert('Your preferences have been saved')">
+    <tr> Name:
+    <input type="text" class="ClientName" name="clientname" value="" required>
+     </tr>
+    <span>SMS :</span>
+      <input type="radio" class="enableSms" name="sms" value="Enabled" onclick="show('smsDetails');enablesms()" required> Enabled
+      <input type="radio" class="disableSms" name="sms" value="Disabled" onclick="hide('smsDetails');hide('smsProcessorDetails');disablesms()"> Disabled
+      <br>
+      <br>
+
+      <div id="smsDetails" style="display:none; ">
+        Sms Customer :
+        <input type="radio" class="enableCustomersms" name="smsCustomer" value="Enabled" required> Enabled
+        <input type="radio" class="disableCustomersms" name="smsCustomer" value="Disabled"> Disabled
+        <br>
+        <br> Sms Client :
+        <input type="radio" class="enableClientsms" name="smsClient" value="Enabled" required> Enabled
+        <input type="radio" class="disableClientsms" name="smsClient" value="Disabled"> Disabled
+        <br>
+        <br> Sms WebMaster :
+        <input type="radio" class="enableWebMastersms" name="smsWebMaster" value="Enabled" onclick="show('webmasterPhoneNumber');reqtrue('smsWebMasterPhone')" required> Enabled
+        <input type="radio" class="disableWebMastersms" name="smsWebMaster" value="Disabled" onclick="hide('webmasterPhoneNumber');reqfalse('smsWebMasterPhone')"> Disabled
+        <br>
+        <br> Sms Processor :
+        <input type="radio" class="sendGridProcessorsms" name="smsProcessor" value="SendGrid" onclick="show('smsProcessorDetails');reqtrue('AccSID');reqtrue('AuthToken');reqtrue('PhoneNumber')" required> SendGrid
+        <input type="radio" class="twilioProcessorsms" name="smsProcessor" value="Twilio" onclick="show('smsProcessorDetails')"> Twilio
+        <br>
+        <br>
+
+        <td id="webmasterPhoneNumber" style="display:none;">
+          Sms WebMaster Phone Number :
+          <input type="tel" class="webmasterPhone" name="smsWebMasterPhone" value="" required>
+          <br>
+          <br>
+        </td>
+      </div>
+
+      <div id="smsProcessorDetails" style="display:none;">
+        <td>
+          <caption>Sms Processor details</caption>
+          <tr>Account SID :
+            <input type="text" class="accountSid" name="AccSID" value="" required>
+          </tr>
+          <br>
+
+          <tr>Auth Token :
+            <input type="text" class="authToken" name="AuthToken" value="" required>
+          </tr>
+          <br>
+
+          <tr>Phone Number :
+            <input type="number" class="phoneNumber" name="PhoneNumber" value="" required>
+          </tr>
+        </td>
+        <br>
+      </div>
+      
+      <span>Email :</span>
+      <input type="radio" class="enableEmail" name="email" value="Enabled" onclick="emailfn();enableEmail()" required> Enabled
+      <input type="radio" class="disableEmail" name="email" value="Disabled" onclick="emailhidefn();disableEmail()"> Disabled
+      <br>
+      <br>
+      
+      <div id="emailDetails" style="display:none;">
+        Email Customer :
+        <input type="radio" class="enableEmailCustomer" name="EmailCustomer" value="Enabled" required> Enabled
+        <input type="radio" class="disableEmailCustomer" name="EmailCustomer" value="Disabled"> Disabled
+        <br>
+        <br> Email Client :
+        <input type="radio" class="enableEmailClient" name="EmailClient" value="Enabled" onclick="show('ClientEmailAddresses');reqtrue('ClientEmail')" required> Enabled
+        <input type="radio" class="disableEmailClient" name="EmailClient" value="Disabled" onclick="hide('ClientEmailAddresses');reqfalse('ClientEmail')"> Disabled
+        <br>
+        <br> Email WebMaster :
+        <input type="radio" class="enableWebMasteremail" name="emailWebMaster" value="Enabled" onclick="show('WebMasterEmailAddresses');reqtrue('WebMasterEmail')" required> Enabled
+        <input type="radio" class="disableWebMasteremail" name="emailWebMaster" value="Disabled" onclick="hide('WebMasterEmailAddresses');reqfalse('WebMasterEmail')"> Disabled
+        <br>
+        <br> Email Processor :
+        <input type="radio" class="mailgunProcessoremail" name="emailProcessor" value="Mailgun" onclick="show('EmailProcessorDetails');reqtrue('APIKey');reqtrue('DomainName')" required> Mailgun
+        <input type="radio" class="otherProcessoremail" name="emailProcessor" value="Other" onclick="show('EmailProcessorDetails');reqtrue('APIKey');reqtrue('DomainName')"> Other
+        <br>
+        <br>
+      </div>
+
+      <div>
+        <td id="EmailAddresses" style="display:none;">
+          <tr>From Email :
+            <input type="email" id="FromEmailAdd" class="fromEmail" name="FromEmail" value="" required>
+          </tr>
+          <br>
+        </td>
+      </div>
+
+      <div id="ClientEmailAddresses" style="display:none;">
+        <td>
+          <tr>Client Email :
+            <input type="email" id="ClientEmailAdd" class="clientEmail" name="ClientEmail" value="" required>
+          </tr>
+        </td>
+        <br>
+      </div>
+
+      <div id="WebMasterEmailAddresses" style="display:none;">
+        <td>
+          <tr>WebMaster Email :
+            <input type="email" id="WebMasterEmailAdd" class="webmasterEmail" name="WebMasterEmail" value="" required>
+          </tr>
+        </td>
+        <br>
+      </div>
+
+
+      <div id="EmailProcessorDetails" style="display:none;">
+        <td>
+          <tr><span>Email Processor Details</span>
+            <br> API Key :
+            <input type="text" class="apiKey" name="APIKey" value="" required>
+          </tr>
+          <br>
+
+          <tr>Domain Name :
+            <input type="text" class="domainName" name="DomainName" value="" placeholder="example.com" required>
+          </tr>
+          <br>
+
+        </td>
+        <br>
+      </div>
+      
+      <span>Printer :</span>
+      <input type="radio" class="enablePrinter" name="Printer" value="Enabled" onclick="show('printerDetails');enablePrinter()" required> Enabled
+      <input type="radio" class="disablePrinter" name="Printer" value="Disabled" onclick="hide('printerDetails');disablePrinter()"> Disabled
+      <br>
+      <br>
+
+      <div id="printerDetails" style="display:none;">
+        Printer Processor :
+        <input type="radio" class="printerProcessor" name="PrinterProcessor" value="XXXX" required> XXXX
+        <input type="radio" class="noPrinterProcessor" name="PrinterProcessor" value="Nothing"> Nothing
+        <br>
+        <br>
+      </div>
+
+      <span>Order System :</span>
+      <input type="radio" class="enableOrderSystem" name="OrderSystem" value="Enabled" onclick="show('orderDetails');enableOrder()" required> Enabled
+      <input type="radio" class="DisableOrderSystem" name="OrderSystem" value="Disabled" onclick="hide('orderDetails');disableOrder()"> Disabled
+      <br>
+      <br>
+
+      <div id="orderDetails" style="display:none;">
+        Order Processor :
+        <input type="radio" class="orderProcessor" name="OrderProcessor" value="XXXX" required> XXXX
+        <input type="radio" class="noOrderProcessor" name="OrderProcessor" value="Nothing"> Nothing
+        <br>
+        <br>
+      </div>
+
+      <span>Websheets Url :</span>
+      <input type="url" class="websheetsUrl" name="WebsheetsURL" value="" required>
+      <br><br><br><br>
+      
+      <input type='submit' value='Submit'>
+      <button type='reset' value='Reset' onclick="resetfn()" >Reset</button>
+    </form>
+  </table>
+</template>
