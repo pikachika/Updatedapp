@@ -1,4 +1,4 @@
-Template.clientInput.helpers({
+Template.payment.helpers({
  
  'displayPaymentDetails' : function(){
     return Session.get("toDisplayPaymentDetails");
@@ -6,7 +6,7 @@ Template.clientInput.helpers({
 
 });
 
-Template.clientInput.events({
+Template.payment.events({
 
  'click .enableOnlinePayment' : function(evt,tmpl){
  	paymentDisplay=true;

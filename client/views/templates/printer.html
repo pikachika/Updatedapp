@@ -1,0 +1,15 @@
+<template name="printer">
+      <span>Printer :</span>
+      <input type="radio" class="enablePrinter" name="Printer" value="Enabled"  required> Enabled
+      <input type="radio" class="disablePrinter" name="Printer" value="Disabled" > Disabled
+      <br><br>
+     
+     {{#if displayPrinterDetails}}
+      <div id="printerDetails" >
+        Printer Processor :
+        <input type="radio" class="printerProcessor" name="PrinterProcessor" value="XXXX" required> XXXX
+        <input type="radio" class="noPrinterProcessor" name="PrinterProcessor" value="Nothing"> Nothing
+        <br><br>
+      </div>
+      {{/if}}
+</template>

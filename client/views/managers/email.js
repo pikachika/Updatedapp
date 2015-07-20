@@ -1,5 +1,5 @@
 
-  Template.clientInput.helpers({
+  Template.email.helpers({
   
 
   'displayEmail' : function(){
@@ -20,7 +20,7 @@
 
 });
 
-  Template.clientInput.events({
+  Template.email.events({
   
 
    'click .enableEmail' : function(evt,tmpl){

@@ -1,4 +1,4 @@
-Template.clientInput.helpers({
+Template.order.helpers({
 
   'displayOrderDetails' : function(){
     return Session.get("toDisplayOrderDetails");
@@ -6,7 +6,7 @@ Template.clientInput.helpers({
 
 });
 
-Template.clientInput.events({
+Template.order.events({
     
  'click .enableOrderSystem' : function(evt,tmpl){
  	orderdisplay = true;

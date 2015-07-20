@@ -1,0 +1,39 @@
+<template name="clientInput">
+   <span> Name :</span>
+      <input type="text" class="ClientName" name="clientname" value="" required>
+   <br><br>
+
+    <span>Restaurant Name :</span>
+      <input type="text" class="restaurant" name="RestaurantName" value="" required>
+      <br><br>
+
+    <span>Root Url :</span>
+      <input type="url" class="rootUrl" name="RootUrl" value="" required>
+      <br><br>
+  
+   <span>Image Formatter :</span>
+      <input type="url" class="imageFormatter" name="ImageFormatter" value="" autocomplete="on" required>
+   <br><br>
+
+   <span>Country Code :</span>
+   <select class="countryCode" id="country" name="CountryCodes"  >
+    <option value="" hidden></option>
+    <option value="US">US</option>
+    <option value="UK">UK</option>
+    <option value="AU">AU</option>
+    <option value="IN">IN</option>
+    <option value="CA">CA</option>
+    </select><br><br>
+
+   <span>Currency Code:</span>
+   <input type="text" class="currencyCode" name="CurrencyCode" value={{displayCurrency}} >
+   <br><br>
+
+   <span>GMT Offset:</span>
+   <input type="number" class="gmtoffset" name="GMTOffset" value="">
+   <br><br> 
+ 
+   <span>Websheets Url :</span>
+    <input type="url" class="websheetsUrl" name="WebsheetsURL" value="" required>
+      <br><br>
+</template>

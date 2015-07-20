@@ -1,4 +1,4 @@
- Template.clientInput.helpers({
+ Template.sms.helpers({
   'displaySms' : function(){
     return Session.get("toDisplaySms");
   },
@@ -13,7 +13,7 @@
   	
 });
 
- Template.clientInput.events({
+ Template.sms.events({
   
   'click .enableSms' : function(evt,tmpl){
     Session.set("toDisplaySms",true);    

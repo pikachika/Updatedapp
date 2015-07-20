@@ -1,4 +1,4 @@
-Template.clientInput.helpers({
+Template.printer.helpers({
  
  'displayPrinterDetails' : function(){
     return Session.get("toDisplayPrinterDetails");
@@ -6,7 +6,7 @@ Template.clientInput.helpers({
 
 });
 
-Template.clientInput.events({
+Template.printer.events({
 
  'click .enablePrinter' : function(evt,tmpl){
  	printerdisplay = true;

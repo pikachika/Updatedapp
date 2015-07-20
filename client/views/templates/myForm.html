@@ -1,0 +1,23 @@
+<head>
+  <title>myapp</title>
+</head>
+
+
+<template name="myForm">
+   <form name="myForm" autocomplete="off" onsubmit="alert('Your preferences have been saved')">
+  {{> clientInput}}
+  {{> payment}}
+  {{> sms}}
+  {{> email}}
+  {{> printer}}
+  {{> order}}
+  {{> footer}}
+   </form>
+ </template>
+
+<body>
+  <h2>Configuration</h2> 
+
+  {{> myForm}}
+
+  </body>

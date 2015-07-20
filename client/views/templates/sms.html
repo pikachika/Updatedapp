@@ -1,0 +1,62 @@
+<template name="sms">
+    <span>SMS :</span>
+      <input type="radio" class="enableSms" name="sms" value="Enabled"  required > Enabled
+      
+      <input type="radio" class="disableSms" name="sms" value="Disabled" > Disabled
+     
+      <br>
+      <br>
+      
+        {{#if displaySms}}
+        <div id="smsDetails"  >        
+        Sms Customer :
+        <input type="radio" class="enableCustomersms" name="smsCustomer" value="Enabled" required> Enabled
+        <input type="radio" class="disableCustomersms" name="smsCustomer" value="Disabled"> Disabled
+        <br>
+        <br> Sms Client :
+        <input type="radio" class="enableClientsms" name="smsClient" value="Enabled" required> Enabled
+        <input type="radio" class="disableClientsms" name="smsClient" value="Disabled"> Disabled
+        <br>
+        <br> Sms WebMaster :
+        <input type="radio" class="enableWebMastersms" name="smsWebMaster" value="Enabled" required> Enabled
+        <input type="radio" class="disableWebMastersms" name="smsWebMaster" value="Disabled" > Disabled
+        <br>
+        <br> Sms Processor :
+        <input type="radio" class="sendGridProcessorsms" name="smsProcessor" value="SendGrid" required> SendGrid
+        <input type="radio" class="twilioProcessorsms" name="smsProcessor" value="Twilio" > Twilio
+        <br>
+        <br>
+        </div>
+        {{/if}}
+         
+      {{#if displayWebMasterPhone}}
+        <td id="webmasterPhoneNumber" >
+          Sms WebMaster Phone Number :
+          <input type="tel" class="webmasterPhone" name="smsWebMasterPhone" value="" required>
+          <br>
+          <br>
+        </td>
+      {{/if}}
+
+      {{#if displaySmsProcessorDetails}}   
+       <div id="smsProcessorDetails" >
+        <td>
+          <caption>Sms Processor details</caption>
+          <tr>Account SID :
+            <input type="text" class="accountSid" name="AccSID" value="" required>
+          </tr>
+          <br>
+
+          <tr>Auth Token :
+            <input type="text" class="authToken" name="AuthToken" value="" required>
+          </tr>
+          <br>
+
+          <tr>Phone Number :
+            <input type="number" class="phoneNumber" name="PhoneNumber" value="" required>
+          </tr>
+        </td>
+        <br>
+       </div>
+      {{/if}}
+</template>
