@@ -1,5 +1,7 @@
 Meteor.methods({
-     'addTodb':function(valueToInsert){
-       ClientChoice.update({},valueToInsert,{upsert:true});
+     'addTodb':function(valueToInsert,ClientsName,Restaurant){
+       var query={};
+       query["private."+Restaurant+".name"]=ClientsName;
+       ClientChoice.update(query,valueToInsert,{upsert:true});
        }
 });

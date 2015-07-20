@@ -16,8 +16,6 @@
   rootURL=event.target.RootUrl.value;
   ClientsName= event.target.clientname.value;
   onlinepayment=event.target.OnlinePayment.value;
-  PrivateKey=event.target.PrivateKey.value;
-  APIVersion=event.target.ApiVersion.value;
   Sms=event.target.sms.value;
   Email = event.target.email.value;
   Printer = event.target.Printer.value;
@@ -26,6 +24,8 @@
   if(paymentDisplay == true){
   paymentprocessor=event.target.PaymentProcessor.value;
   PublicKey=event.target.PublicKey.value;
+  PrivateKey=event.target.PrivateKey.value;
+  APIVersion=event.target.ApiVersion.value;
   }
   if(smsdisplay == true){
   CustomerSMS= event.target.smsCustomer.value;
@@ -61,7 +61,7 @@
   valueToInsert = {};
   valueToInsert["public"]={
     orgCode:{
-      "default" : "canampizzabellevue",
+      "default" : "canampizzabellevue"
     }};
   valueToInsert["public"][Restaurant]={
     imageFormatter: imageformatter,
@@ -77,8 +77,8 @@
     };}
   valueToInsert["private"]={};
   valueToInsert["private"][Restaurant]={
-    rootUrl: rootURL, 
     name: ClientsName,
+    rootUrl: rootURL, 
     sms: Sms,
     smsCustomer: CustomerSMS,
     smsClient: ClientSMS,
@@ -99,7 +99,7 @@
     orderProcessor: Orderprocessor,
     websheetsUrl: WebsheetsUrL 
    };  
-  if(onlinepayment != ""){
+  if(paymentprocessor != ""){
     valueToInsert["private"][Restaurant][paymentprocessor]= {
       privateKey: PrivateKey,
       apiVersion: APIVersion
@@ -113,7 +113,7 @@
    valueToInsert["private"][Restaurant][ProcessorEmail] = {
     apiKey: APIKey,
     domainName: DomainName}; }
-  Meteor.call('addTodb',valueToInsert); 
+  Meteor.call('addTodb',valueToInsert,ClientsName,Restaurant); 
   }
   }); 
     
