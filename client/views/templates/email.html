@@ -1,12 +1,15 @@
 <template name="email">
       <span>Email :</span>
+      <label>
       <input type="radio" class="enableEmail" name="email" value="Enabled"  required> Enabled
       <input type="radio" class="disableEmail" name="email" value="Disabled" > Disabled
+      </label>
       <br>
       <br>
       
       {{#if displayEmail}}
       <div id="emailDetails" >
+        <label>
         Email Customer :
         <input type="radio" class="enableEmailCustomer" name="EmailCustomer" value="Enabled" required> Enabled
         <input type="radio" class="disableEmailCustomer" name="EmailCustomer" value="Disabled"> Disabled
@@ -22,6 +25,7 @@
         <br> Email Processor :
         <input type="radio" class="mailgunProcessoremail" name="emailProcessor" value="Mailgun" required > Mailgun
         <input type="radio" class="otherProcessoremail" name="emailProcessor" value="Other" > Other
+        </label>
         <br><br>
 
         <td id="EmailAddresses" >

@@ -1,16 +1,22 @@
  <template name="payment">
    <span>Online Payment :</span>
+   <label>
       <input type="radio" class="enableOnlinePayment" name="OnlinePayment" value="Enabled"  required > Enabled      
       <input type="radio" class="disableOnlinePayment" name="OnlinePayment" value="Disabled" > Disabled
+  </label>
      <br><br> 
 
    {{#if displayPaymentDetails}}
     <span>Payment Processor:</span>
+    <label>
       <input type="radio" class="stripeProcessor" name="PaymentProcessor" value="Stripe" required > Stripe
       <input type="radio" class="otherProcessor" name="PaymentProcessor" value="Other" > Other
+      </label>
       <br><br>
-
-      <td>
+      
+     
+       
+     <td>
         <tr><span>Payment Processor Details</span><br>
           <br> Private Key :
           <input type="text" class="privateKey" name="PrivateKey" value="" required>
@@ -22,6 +28,6 @@
       <tr>API version :
          <input type="text" class="apiVersion" name="ApiVersion" value="" required>
       </tr><br>
-      </td><br>    
+      </td><br>   
      {{/if}}
      </template>

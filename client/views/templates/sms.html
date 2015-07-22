@@ -1,14 +1,15 @@
 <template name="sms">
-    <span>SMS :</span>
-      <input type="radio" class="enableSms" name="sms" value="Enabled"  required > Enabled
-      
+    <span>Sms :</span>
+    <label>
+      <input type="radio" class="enableSms" name="sms" value="Enabled"  required > Enabled      
       <input type="radio" class="disableSms" name="sms" value="Disabled" > Disabled
-     
+    </label>   
       <br>
       <br>
       
         {{#if displaySms}}
-        <div id="smsDetails"  >        
+        <div id="smsDetails"  >  
+        <label>      
         Sms Customer :
         <input type="radio" class="enableCustomersms" name="smsCustomer" value="Enabled" required> Enabled
         <input type="radio" class="disableCustomersms" name="smsCustomer" value="Disabled"> Disabled
@@ -24,6 +25,7 @@
         <br> Sms Processor :
         <input type="radio" class="sendGridProcessorsms" name="smsProcessor" value="SendGrid" required> SendGrid
         <input type="radio" class="twilioProcessorsms" name="smsProcessor" value="Twilio" > Twilio
+        </label>
         <br>
         <br>
         </div>

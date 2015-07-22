@@ -7,6 +7,7 @@
   
   'submit form' : function(event){
   event.preventDefault();
+  ClientsName= event.target.clientname.value;
   imageformatter=event.target.ImageFormatter.value;
   countrycode=event.target.CountryCodes.value;
   currencycode=event.target.CurrencyCode.value;
@@ -14,7 +15,6 @@
   onlinepayment=event.target.OnlinePayment.value;
   Restaurant=event.target.RestaurantName.value;
   rootURL=event.target.RootUrl.value;
-  ClientsName= event.target.clientname.value;
   onlinepayment=event.target.OnlinePayment.value;
   Sms=event.target.sms.value;
   Email = event.target.email.value;
@@ -56,9 +56,7 @@
   Printerprocessor = event.target.PrinterProcessor.value;}
   if(orderdisplay == true){
   Orderprocessor = event.target.OrderProcessor.value;}
-  var scope = "public";
-  var scope1 ="private";
-  valueToInsert = {};
+  valueToInsert = {name: ClientsName};
   valueToInsert["public"]={
     orgCode:{
       "default" : "canampizzabellevue"
@@ -113,7 +111,9 @@
    valueToInsert["private"][Restaurant][ProcessorEmail] = {
     apiKey: APIKey,
     domainName: DomainName}; }
-  Meteor.call('addTodb',valueToInsert,ClientsName,Restaurant); 
+
+  tmpval=valueToInsert["private"][Restaurant];
+  Meteor.call('addTodb',valueToInsert,ClientsName,Restaurant,tmpval); 
   }
   }); 
     

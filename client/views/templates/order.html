@@ -1,16 +1,20 @@
 
 <template name="order">
       <span>Order System :</span>
+      <label>
       <input type="radio" class="enableOrderSystem" name="OrderSystem" value="Enabled" required > Enabled
       <input type="radio" class="disableOrderSystem" name="OrderSystem" value="Disabled" > Disabled
+      </label>
        <br><br>
       
 
      {{#if displayOrderDetails}}
       <div id="orderDetails">
-        Order Processor :
+        <label>
+        Order Processor :  
         <input type="radio" class="orderProcessor" name="OrderProcessor" value="XXXX" required> XXXX
         <input type="radio" class="noOrderProcessor" name="OrderProcessor" value="Nothing"> Nothing
+        </label>
         <br><br>
       </div>
      {{/if}}

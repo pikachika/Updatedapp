@@ -1,0 +1,30 @@
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }
+
+span,label,td{font-weight: normal;
+	 font-family:garamond;}
+
+body{   
+	padding-top: 10px;
+    padding-right: 50px;
+    padding-bottom: 25px;
+    padding-left: 500px;
+    background:#F9FDFF;}
+
+input:not([type=radio]):not([type=button]:not([type=submit]),select{
+    display:inline;
+    width:100px;
+    float:right;
+    margin-right: 400px;
+}
+
+input,select,textarea { 
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
+    }
+
+.submit input { 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    }
