@@ -1,4 +1,4 @@
-
+  DataVariable="";
   var CustomerSMS = "",WebmasterSMS= "",ClientSMS= "",ProcessorSMS= "",WebmasterphoneSMS= "",accsid= "",token= "",phno= "",FromEmailAdd= "",
   ClientEmailAdd= "",WebMasterAdd= "",WebsheetsUrl= "",CustomerEmail= "",ClientEmail= "",WebmasterEmail= "",ProcessorEmail= "",
   Printerprocessor= "",Orderprocessor = "",paymentprocessor="";
@@ -59,7 +59,7 @@
   valueToInsert = {name: ClientsName};
   valueToInsert["public"]={
     orgCode:{
-      "default" : "canampizzabellevue"
+      "default" : Restaurant
     }};
   valueToInsert["public"][Restaurant]={
     imageFormatter: imageformatter,
@@ -113,7 +113,9 @@
     domainName: DomainName}; }
 
   tmpval=valueToInsert["private"][Restaurant];
-  Meteor.call('addTodb',valueToInsert,ClientsName,Restaurant,tmpval); 
+
+  tmpval1=valueToInsert["public"][Restaurant];
+  Meteor.call('addTodb',valueToInsert,ClientsName,Restaurant,tmpval,tmpval1); 
   }
   }); 
     

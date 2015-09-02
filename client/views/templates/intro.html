@@ -1,0 +1,20 @@
+<template name="intro">
+<form name="introForm">
+<div class="ClientNameSearch" >
+   <span> Name :</span>
+      <input type="text" class="ClientNameInput" name="clientsName" value="" required>
+   <br><br>
+    <span> Restaurant Name :</span>
+      <input type="text" class="restaurantNameInput" name="restaurant" value="" required>
+   <br><br>
+
+    <input type='submit' class="submitButton" value='Submit' >
+    <br><br>
+</div>
+
+{{#if restaurantExists}}
+{{> userInfo}}
+{{/if}}
+
+ </form>
+ </template>
