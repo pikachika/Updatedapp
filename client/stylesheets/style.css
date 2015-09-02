@@ -17,6 +17,13 @@ span,label,td{font-weight: normal;
     margin-right: 80px;
     background:#F9FDFF;}
 
+.FormElements{   
+    padding-right: 300px;
+    padding-top: 50px;
+    padding-bottom: 25px;
+    padding-left: 500px;
+    background:#F9FDFF;}
+
 input:not([type=radio]):not([type=button]):not([type=submit]),select{
     display:inline;
     width:100px;
@@ -24,7 +31,7 @@ input:not([type=radio]):not([type=button]):not([type=submit]),select{
     margin-right: 150px;}
 
     
-input,select,textarea,button {
+input,select,textarea {
     box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
     -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
     -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; }
@@ -35,7 +42,7 @@ input,select,textarea,button {
     }
 
 .edit{
-    margin-left: 150px;
+    margin-left: 10px;
     width: 100px;
 
 }
