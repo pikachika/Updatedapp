@@ -1,155 +1,170 @@
 <template name="userInfo">
 {{#with pullData}}
+<a href="/">Home</a>
+<br><br>
+
 <div class="DataFromDb">
 
+<fieldset id="field" disabled>
+   <span> Name :</span>
+      <input type="text" class="ClientName" name="clientname" value="{{name}}" >
+   <br><br>
+
+    <span>Restaurant Name :</span>
+      <input type="text" class="restaurant" name="RestaurantName" value="{{extractRestaurantName 'orgCode' 'default'}}" >
+      <br><br>
+
     <span>Root Url :</span>
-      <input value={{restaurantData 'private' 'rootUrl'}} readonly>
+      <input id="editable" name="RootUrl" value={{restaurantData 'private' 'rootUrl'}} >
       <br><br>
   
    <span>Image Formatter :</span>
-      <input value={{restaurantData 'public' 'imageFormatter'}} readonly>
+      <input value={{restaurantData 'public' 'imageFormatter'}} >
    <br><br>
 
    <span>Country Code :</span>
-   <input  value={{restaurantData 'public' 'countryCode'}} readonly>
+   <input  value={{restaurantData 'public' 'countryCode'}} >
     <br><br>
 
    <span>Currency Code:</span>
-   <input value={{restaurantData 'public' 'currencyCode'}} readonly >
+   <input value={{restaurantData 'public' 'currencyCode'}}  >
    <br><br>
 
    <span>GMT Offset:</span>
-   <input  value={{restaurantData 'public' 'gmtOffset'}} readonly>
+   <input  value={{restaurantData 'public' 'gmtOffset'}} >
    <br><br> 
  
    <span>Websheets Url :</span>
-    <input  value={{restaurantData 'private' 'websheetsUrl'}} readonly>
+    <input  value={{restaurantData 'private' 'websheetsUrl'}} >
       <br><br>
 
    <span>Online Payment :</span>
-      <input value={{restaurantData 'public' 'onlinePayment'}} readonly>  
+      <input value={{restaurantData 'public' 'onlinePayment'}} >  
      <br><br> 
 
     <span>Payment Processor:</span>
-      <input value={{restaurantData 'public' 'paymentProcessor'}} readonly>  
+      <input value={{restaurantData 'public' 'paymentProcessor'}} >  
       <br><br>
            
     <span>Payment Processor Details</span><br>
     <span>Private Key :</span>
-           <input value={{extractDataDetails 'private' 'paymentProcessor' 'privateKey'}} readonly>  
+           <input value={{extractDataDetails 'private' 'paymentProcessor' 'privateKey'}} >  
      <br><br> 
      <span>Public Key:</span>
-           <input value={{extractDataDetails 'public' 'paymentProcessor' 'publicKey'}} readonly>  
+           <input value={{extractDataDetails 'public' 'paymentProcessor' 'publicKey'}} >  
       <br><br> 
       <span>API version :</span>
-         <input value={{extractDataDetails 'private' 'paymentProcessor' 'apiVersion'}} readonly>  
+         <input value={{extractDataDetails 'private' 'paymentProcessor' 'apiVersion'}} >  
 <br><br>
 
     <span>Sms :</span>  
-      <input value={{restaurantData 'private' 'sms'}} readonly>
+      <input value={{restaurantData 'private' 'sms'}} >
       <br><br>
 
       <span>Sms Customer :</span>  
-      <input value={{restaurantData 'private' 'smsCustomer'}} readonly>
+      <input value={{restaurantData 'private' 'smsCustomer'}} >
       <br><br>
 
       <span>Sms Client :</span>  
-      <input value={{restaurantData 'private' 'smsClient'}} readonly>
+      <input value={{restaurantData 'private' 'smsClient'}} >
       <br><br>
 
       <span>Sms WebMaster :</span>  
-      <input value={{restaurantData 'private' 'smsWebMaster'}} readonly>
+      <input value={{restaurantData 'private' 'smsWebMaster'}} >
       <br><br>
 
       <span>Sms Processor :</span>  
-      <input value={{restaurantData 'private' 'smsProcessor'}} readonly>
+      <input value={{restaurantData 'private' 'smsProcessor'}} >
       <br><br>
       
       <span>Sms WebMaster Phone Number :</span>  
-      <input value={{restaurantData 'private' 'smsWebmasterPhoneNumber'}} readonly>
+      <input value={{restaurantData 'private' 'smsWebmasterPhoneNumber'}} >
       <br><br>
 
       <span>Sms Processor details</span>
         
       <span>Account SID :</span>  
-      <input value={{extractDataSms 'private' 'smsProcessor' 'accountSID'}} readonly>
+      <input value={{extractDataSms 'private' 'smsProcessor' 'accountSID'}} >
       <br><br>
 
       <span>Auth Token :</span>  
-      <input value={{extractDataSms 'private' 'smsProcessor' 'authToken'}}  readonly>
+      <input value={{extractDataSms 'private' 'smsProcessor' 'authToken'}}  >
       <br><br>
 
       <span>Phone Number :</span>  
-      <input value={{extractDataSms 'private' 'smsProcessor' 'phoneNumber'}} readonly>
+      <input value={{extractDataSms 'private' 'smsProcessor' 'phoneNumber'}} >
       <br><br>
 
 
        <span>Email :</span>  
-      <input value={{restaurantData 'private' 'email'}} readonly>
+      <input value={{restaurantData 'private' 'email'}} >
       <br><br>
 
       <span>Email Customer :</span>  
-      <input value={{restaurantData 'private' 'emailCustomer'}} readonly>
+      <input value={{restaurantData 'private' 'emailCustomer'}} >
       <br><br>
 
       <span>Email Client :</span>  
-      <input value={{restaurantData 'private' 'emailClient'}} readonly>
+      <input value={{restaurantData 'private' 'emailClient'}} >
       <br><br>
 
       <span>Email WebMaster :</span>  
-      <input value={{restaurantData 'private' 'emailWebmaster'}} readonly>
+      <input value={{restaurantData 'private' 'emailWebmaster'}} >
       <br><br>
 
       <span>Email Processor :</span>  
-      <input value={{restaurantData 'private' 'emailProcessor'}} readonly>
+      <input value={{restaurantData 'private' 'emailProcessor'}} >
       <br><br>
 
       <span>Email Addresses</span>
       <br>
 
       <span>From Email :</span>  
-      <input value={{restaurantData 'private' 'emailFromAddress'}} readonly>
+      <input value={{restaurantData 'private' 'emailFromAddress'}} >
       <br><br>
 
       <span>Client Email :</span>  
-      <input value={{restaurantData 'private' 'emailClientAddress'}}  readonly>
+      <input value={{restaurantData 'private' 'emailClientAddress'}}  >
       <br><br>
 
       <span>WebMaster Email :</span>  
-      <input value={{restaurantData 'private' 'emailWebmasterAddress'}} readonly>
+      <input value={{restaurantData 'private' 'emailWebmasterAddress'}} >
       <br><br>
 
       <span>Email Processor details</span>
       <br>
 
       <span>API Key :</span>  
-      <input value={{extractDataSms 'private' 'emailProcessor' 'apiKey'}}  readonly>
+      <input value={{extractDataSms 'private' 'emailProcessor' 'apiKey'}}  >
       <br><br>
 
       <span>Domain Name:</span>  
-      <input value={{extractDataSms 'private' 'emailProcessor' 'domainName'}} readonly>
+      <input value={{extractDataSms 'private' 'emailProcessor' 'domainName'}} >
       <br><br>
 
       <span>Printer :</span>  
-      <input value={{restaurantData 'private' 'printer'}} readonly>
+      <input value={{restaurantData 'private' 'printer'}} >
       <br><br>
 
       <span>Printer Processor:</span>  
-      <input value={{restaurantData 'private' 'printerProcessor'}} readonly>
+      <input value={{restaurantData 'private' 'printerProcessor'}} >
       <br><br>
 
       <span>Order System:</span>  
-      <input value={{restaurantData 'private' 'orderSystem'}} readonly>
+      <input value={{restaurantData 'private' 'orderSystem'}} >
       <br><br>
 
       <span>Order Processor:</span>  
-      <input value={{restaurantData 'private' 'orderProcessor'}} readonly>
+      <input value={{restaurantData 'private' 'orderProcessor'}} >
       <br><br>
 
+</fieldset>
+
+       <br><br>
        <button type='edit' class="edit" name="edit_btn" value='Edit' >Edit</button>
 
+       <input type='submit' class="submit" value='Submit' >
+
 </div>
-
 {{/with}}
-
 </template>

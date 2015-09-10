@@ -1,3 +1,10 @@
+Router.route('/myForm');
+Router.route('/userInfo');
+Router.route('/', {
+    template: 'intro'
+});
+
+
 Meteor.methods({
      'addTodb':function(valueToInsert,ClientsName,Restaurant,tmpval,tmpval1){
        var query={};

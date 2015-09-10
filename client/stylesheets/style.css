@@ -9,6 +9,12 @@ span,label,td{font-weight: normal;
     background:#F9FDFF;
 }
 
+fieldset {
+  width: 500px;
+  border:none;
+  float: left;    
+}
+
 .DataFromDb{   
     padding-right: 300px;
     padding-top: 50px;

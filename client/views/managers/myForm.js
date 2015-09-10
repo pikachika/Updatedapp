@@ -1,3 +1,10 @@
+Router.route('/myForm');
+Router.route('/userInfo');
+Router.route('/', {
+    template: 'intro'
+});
+
+
   DataVariable="";
   var CustomerSMS = "",WebmasterSMS= "",ClientSMS= "",ProcessorSMS= "",WebmasterphoneSMS= "",accsid= "",token= "",phno= "",FromEmailAdd= "",
   ClientEmailAdd= "",WebMasterAdd= "",WebsheetsUrl= "",CustomerEmail= "",ClientEmail= "",WebmasterEmail= "",ProcessorEmail= "",
