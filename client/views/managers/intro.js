@@ -10,11 +10,13 @@ Meteor.methods({
       var query_restaurant={};
       query_restaurant["private."+RestaurantName+".name"]=ClientsName;
       dataExists=ClientChoice.findOne(query_restaurant);
-      if(dataExists){
+      if(dataExists != null){
+      Router.go('/userInfo');
       Session.set("TodataExists",true);}
       else
         { 
-         Session.set("TodataExists",false); }
+         Session.set("TodataExists",false);
+         alert("No data available"); }
       searchdata=ClientChoice.findOne({name: ClientsName});
       if(searchdata != null)
       {
@@ -27,7 +29,6 @@ Meteor.methods({
 
 Template.intro.events({
  'submit form' : function(event,tmpl){
-  Router.go('/userInfo');
  	event.preventDefault();
  	ClientsName=event.target.clientsName.value;
   RestaurantName=event.target.restaurant.value;
