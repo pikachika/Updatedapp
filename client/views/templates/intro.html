@@ -8,11 +8,13 @@
       <input type="text" class="restaurantNameInput" name="restaurant" value="" required>
    <br><br><br>
 
-    <input type='submit' class="submitButton" value='Submit' >
+    <input type='submit' class="submitButton" value='Get Data' >
     <br><br>
-    <a href="{{pathFor route='myForm'}}">New client or new restaurant</a>  
+
+    <input type="button" onclick="location.href='{{pathFor route='myForm'}}';" value="Add data" />
+
 
 </div>
-
+ 
  </form>
  </template>

@@ -64,11 +64,14 @@ Router.route('/', {
   if(orderdisplay == true){
   Orderprocessor = event.target.OrderProcessor.value;}
   valueToInsert = {name: ClientsName};
-  valueToInsert["public"]={
-    orgCode:{
-      "default" : Restaurant
-    }};
+  valueToInsert["public"]={};
+    //orgCode:{
+     // "default" : Restaurant
+    //}};
   valueToInsert["public"][Restaurant]={
+    orgCode:{
+     "default" : Restaurant
+   },
     imageFormatter: imageformatter,
     countryCode: countrycode,
     currencyCode: currencycode,
