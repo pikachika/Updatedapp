@@ -1,7 +1,9 @@
-<template name="userInfo">
+<template name="userInfo">      
 <form name="userinfo">
+
+
 {{#with pullData}}
-<a href="/">Home</a>
+<a class="linktohome" href="/">Home</a>
 <br><br>
 
 <div class="DataFromDb">
@@ -10,18 +12,30 @@
       <input type="text" name="clientname" value="{{name}}" disabled>
    <br><br>
 
-    <span>Restaurant Name :</span>
-      <input type="text" name="RestaurantName" value="{{extractRestaurantName 'orgCode' 'default'}}" disabled>
-      <br><br>
 
-   <fieldset id="field" disabled>
+<span>Select Restaurant :</span>
+   <select class="restaurantList" id="restaurants" name="restaurantlist"  >
+    <option value="{{extractRestaurantList '0'}}" >{{extractRestaurantList '0'}} </option>
+    <option value="{{extractRestaurantList '1'}}" >{{extractRestaurantList '1'}} </option>
+    <option value="{{extractRestaurantList '2'}}" >{{extractRestaurantList '2'}} </option>
+    </select>
+
+
+  <input  type="text" class="RestaurantNamehidden" name="RestaurantName" value={{extractRestaurantName 'default'}} style="display:none" disabled>
+        <br><br>
+
+       <input type='button' class="edit" name="edit_btn" value='Edit' >
+
+       <input type='submit' class="submit" value='Update' >
+
+   <fieldset id="field" class="field" disabled>
     <span>Root Url :</span>
-      <input id="editable" name="RootUrl" value={{restaurantData 'private' 'rootUrl'}} >
+      <input id="editable" type="value" name="RootUrl" value={{restaurantData 'private' 'rootUrl'}} >
       <br><br>
   
    <span>Image Formatter :</span>
      
-      <input type="url"  name="ImageFormatter" value={{restaurantData 'public' 'imageFormatter'}} >
+      <input  name="ImageFormatter" value={{restaurantData 'public' 'imageFormatter'}} >
    <br><br>
 
    <span>Country Code :</span>
@@ -48,7 +62,7 @@
       <input name="PaymentProcessor" value={{restaurantData 'public' 'paymentProcessor'}} >  
       <br><br>
            
-    <span>Payment Processor Details</span><br>
+    <span>Payment Processor Details</span><br><br>
     <span>Private Key :</span>
            <input name="PrivateKey" value={{extractDataDetails 'private' 'paymentProcessor' 'privateKey'}} >  
      <br><br> 
@@ -83,7 +97,7 @@
       <input name="smsWebMasterPhone" value={{restaurantData 'private' 'smsWebmasterPhoneNumber'}} >
       <br><br>
 
-      <span>Sms Processor details</span>
+      <span>Sms Processor details</span><br><br>
         
       <span>Account SID :</span>  
       <input name="AccSID" value={{extractDataSms 'private' 'smsProcessor' 'accountSID'}} >
@@ -163,10 +177,9 @@
 </fieldset>
 
        <br><br>
-       <button type='edit' class="edit" name="edit_btn" value='Edit' >Edit</button>
+       <input type='button' class="edit" name="edit_btn" value='Edit' ><br><br>
 
        <input type='submit' class="submit" value='Update' >
-
 </div>
 {{/with}}
 </form>

@@ -1,44 +1,60 @@
-DataVariable="";
 var CustomerSMS = "",WebmasterSMS= "",ClientSMS= "",ProcessorSMS= "",WebmasterphoneSMS= "",accsid= "",token= "",phno= "",FromEmailAdd= "",
 ClientEmailAdd= "",WebMasterAdd= "",WebsheetsUrl= "",CustomerEmail= "",ClientEmail= "",WebmasterEmail= "",ProcessorEmail= "",
-Printerprocessor= "",Orderprocessor = "",paymentprocessor="";
+Printerprocessor= "",Orderprocessor = "",paymentprocessor="",RestaurantName="";
 
+
+  
 
   Template.userInfo.helpers({
 
   'pullData' : function(){
     dataObtained=Session.get("toSearchData");
     return dataObtained;
-	},
-
-  'restaurantExists' : function(){
-    return Session.get("TodataExists");
   },
 
   'restaurantData' : function(arg1,arg2){
+    var RestaurantName=Session.get("RestaurantNameVar");
     return this[arg1][RestaurantName][arg2];
   },
 
-  'extractDataDetails' : function(arg1,arg2,arg3){  	
+  'extractDataDetails' : function(arg1,arg2,arg3){  
+    var RestaurantName=Session.get("RestaurantNameVar");  
     var arg4=dataObtained["public"][RestaurantName][arg2];
     return this[arg1][RestaurantName][arg4][arg3];
   },
 
-  'extractRestaurantName' : function(arg1,arg2){    
-    return this["public"][RestaurantName][arg1][arg2];
+  'extractRestaurantName' : function(arg1){
+    //console.log(datavar);
+    //if(datavar == "" || datavar== undefined){
+      //console.log("undefined");
+
+    if(RestaurantName == undefined){
+    var RestaurantName=this["public"]["orgCodeSupported"][arg1];
+    Session.set("RestaurantNameVar",RestaurantName);
+    datavar=this["public"]["orgCodeSupported"][arg1];  
+    }
+    return datavar;
   },
 
-  'extractDataSms' : function(arg1,arg2,arg3){  	
+  'extractRestaurantList' : function(arg1){
+   return this["public"]["orgCodeSupported"]["orgcodes"][arg1];  
+  },
+
+  'extractDataSms' : function(arg1,arg2,arg3){    
+    var RestaurantName=Session.get("RestaurantNameVar");    
     var arg4=dataObtained["private"][RestaurantName][arg2];
     return this[arg1][RestaurantName][arg4][arg3];
-  },
-
-  'restaurantNameData' : function(){
-    return RestaurantName; }
+  }
 });
 
   
   Template.userInfo.events({
+
+
+  'change .restaurantList' : function(event){
+    RestaurantName=document.getElementById("restaurants").value;
+    Session.set("RestaurantNameVar",RestaurantName);
+  },
 
   'click .edit' : function(event){
    event.preventDefault();
@@ -49,7 +65,6 @@ Printerprocessor= "",Orderprocessor = "",paymentprocessor="";
   event.preventDefault();
   ClientsName= event.target.clientname.value;
   imageformatter=event.target.ImageFormatter.value;
-  console.log(imageformatter);
   countrycode=event.target.CountryCodes.value;
   currencycode=event.target.CurrencyCode.value;
   gmtoffset=event.target.GMTOffset.value;
@@ -135,7 +150,8 @@ Printerprocessor= "",Orderprocessor = "",paymentprocessor="";
    valueToInsert["private"][Restaurant][ProcessorSMS] = {
     accountSID: accsid,
     authToken: token,
-    phoneNumber: phno};}
+    phoneNumber: phno 
+  }; }
   if (ProcessorEmail != ""){
    valueToInsert["private"][Restaurant][ProcessorEmail] = {
     apiKey: APIKey,
@@ -151,8 +167,6 @@ Printerprocessor= "",Orderprocessor = "",paymentprocessor="";
   
   
   }); 
-    
-
 
 
 

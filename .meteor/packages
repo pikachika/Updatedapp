@@ -8,3 +8,5 @@ meteor-platform
 insecure
 3stack:country-codes
 iron:router
+deps
+tracker

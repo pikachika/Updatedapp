@@ -65,13 +65,11 @@ Router.route('/', {
   Orderprocessor = event.target.OrderProcessor.value;}
   valueToInsert = {name: ClientsName};
   valueToInsert["public"]={};
-    //orgCode:{
-     // "default" : Restaurant
-    //}};
+  valueToInsert["public"]["orgCodeSupported"]={
+    orgcodes: [Restaurant],
+    "default": Restaurant
+  };
   valueToInsert["public"][Restaurant]={
-    orgCode:{
-     "default" : Restaurant
-   },
     imageFormatter: imageformatter,
     countryCode: countrycode,
     currencyCode: currencycode,
@@ -86,6 +84,7 @@ Router.route('/', {
   valueToInsert["private"]={};
   valueToInsert["private"][Restaurant]={
     name: ClientsName,
+    restaurant: Restaurant,
     rootUrl: rootURL, 
     sms: Sms,
     smsCustomer: CustomerSMS,

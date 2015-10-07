@@ -1,57 +1,138 @@
-span,label,td{font-weight: normal;
+fieldset[disabled]{ 
+    background-image:url(images/form_bg.jpg);
+    font-family:tahoma, arial, sans-serif;
+    font-weight: bold;
+    border:none;
+    opacity: 0.6;
+}
+
+input:focus, textarea:focus { 
+    background-color: rgb(224,224,224) ;
+    overflow: hidden; 
+    outline: none;
+}
+
+.RestaurantNamehidden{
+    display: none;
+}
+
+
+.submit , .reset ,.edit{
+    overflow: hidden;
+    float: left;
+    width: 95px; /* setting the width */
+    margin: 10px; /* this will center  it */
+    height: 38px;
+    border: 1px solid #66661A;
+    font-family:garamond;
+    font-weight: normal;
+    font-size: 14px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 20px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background-color: #606060;
+    background-image: -moz-linear-gradient(bottom, #606060 0%, #416b68 100%);
+    background-image: -o-linear-gradient(bottom, #606060 606060%, #416b68 100%);
+    background-image: -webkit-linear-gradient(bottom, #33CC66 0%, #416b68 100%);
+    background-image: linear-gradient(bottom, #606060 0%, #416b68 100%);
+    cursor:pointer;
+}
+
+
+    .submitButton,.addData_btn {
+    overflow: hidden;
+    width: 100px; /* setting the width */ /* this will center  it */
+    height: 38px;
+    border: 1px solid #66661A;
+    font-family:garamond;
+    font-weight: normal;
+    font-size: 14px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 20px;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background-color: #606060;
+    background-image: -moz-linear-gradient(bottom, #606060 0%, #416b68 100%);
+    background-image: -o-linear-gradient(bottom, #606060 606060%, #416b68 100%);
+    background-image: -webkit-linear-gradient(bottom, #33CC66 0%, #416b68 100%);
+    background-image: linear-gradient(bottom, #606060 0%, #416b68 100%);
+    cursor:pointer;
+}
+
+
+
+
+span,label,td,a {
+     font-weight: normal;
 	 font-family:garamond;}
 
 .ClientNameSearch {
-    text-align: left;
+    border-radius: 5px;
+    text-align: center;
     float:left;
-    padding-top: 20px;
-    padding-left: 20px;
-    background:#F9FDFF;
+    background:#202020;
+    width: 350px;
+    height: 300px;
+    padding: 25px;
+    margin-left: 430px;
+    margin-top: 150px;
 }
 
-fieldset {
+.field {
   width: 500px;
   border:none;
-  float: left;    
+  float: left;  
 }
 
-.DataFromDb{   
-    padding-right: 300px;
+.ClientNameInput {
+    width:150px;
+    height: 40px;
+    text-align: center;
+}
+
+.DataFromDb {   
+    padding-right: 350px;
     padding-top: 50px;
-    padding-bottom: 25px;
-    padding-left: 400px;
-    margin-right: 80px;
-    background:#F9FDFF;}
+    padding-bottom: 120%;
+    padding-left: 500px;
+    background:#202020;
+}
 
 .FormElements{   
-    padding-right: 300px;
+    padding-right: 350px;
     padding-top: 50px;
-    padding-bottom: 25px;
+    padding-bottom: 65px;
     padding-left: 500px;
-    background:#F9FDFF;}
+    background:#202020;}
 
-input:not([type=radio]):not([type=button]):not([type=submit]),select{
+input:not([type=radio]):not([type=button]):not([type=submit]):not([type=reset]):not([class=ClientNameInput]),select{
     display:inline;
-    width:100px;
+    width:120px;
+    height: 20px;
+    text-align: center;
     float:right;
     margin-right: 150px;}
 
     
 input,select,textarea {
+    border-radius: 15px;
+    font-weight: normal;
+    font-family:garamond;
+    font-size: 14px;
     box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
     -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
     -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; }
 
-.submit input { 
-    -webkit-border-radius: 5px; 
-    -moz-border-radius: 5px; 
-    }
-
-.edit{
-    margin-left: 10px;
-    width: 100px;
-
+body{
+    background-color: #E0E0E0;
+    color:#FFFFFF;
+    font-weight: normal;
+    font-family:garamond;}
 }
-
 
 p { text-indent: 30px }
