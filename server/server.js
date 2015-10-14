@@ -28,18 +28,17 @@ Meteor.methods({
         ClientChoice.update({name:ClientsName},{ $push: { "public.orgCodeSupported.orgcodes": Restaurant }} );
         ClientChoice.update({name:ClientsName},{$set: query2});
         ClientChoice.update({name:ClientsName},{$set: query4});
-        alert("Data added");
        }
        else
        {
-       ClientChoice.update({name:ClientsName},{$set: query2});
-       ClientChoice.update({name:ClientsName},{$set: query4});
-       //alert("Data added");
+        ClientChoice.update({name:ClientsName},{$set: query2});
+        ClientChoice.update({name:ClientsName},{$set: query4});
        }
        },
 
     'updateDb':function(valueToInsert,ClientsName,Restaurant,tmpval,tmpval1){
       //constructing query with dynamic field name
+       console.log("working 2");
        var query={};       
        var query2={};
        var query4={};
@@ -48,9 +47,7 @@ Meteor.methods({
        query4["public."+Restaurant]=tmpval1;
        var rest_exists=ClientChoice.findOne(query);
        if(rest_exists){
-       ClientChoice.update({name:ClientsName},{$set: query2});
-       ClientChoice.update({name:ClientsName},{$set: query4});
-       //alert("Data updated");
-       }
+        ClientChoice.update({name:ClientsName},{$set: query2});
+        ClientChoice.update({name:ClientsName},{$set: query4});       }
        }
      });

@@ -67,7 +67,7 @@ input:focus, textarea:focus {
 
 
 
-span,label,td,a {
+span,label,td{
      font-weight: normal;
 	 font-family:garamond;}
 
@@ -134,5 +134,6 @@ body{
     font-weight: normal;
     font-family:garamond;}
 }
+
 
 p { text-indent: 30px }

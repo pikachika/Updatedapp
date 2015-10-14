@@ -57,7 +57,7 @@ Printerprocessor= "",Orderprocessor = "",paymentprocessor="",RestaurantName="";
   },
 
   'click .edit' : function(event){
-   event.preventDefault();
+     event.preventDefault();
      document.getElementById("field").disabled = false;
    },
 
@@ -161,6 +161,7 @@ Printerprocessor= "",Orderprocessor = "",paymentprocessor="",RestaurantName="";
 
   tmpval1=valueToInsert["public"][Restaurant];
   Meteor.call('updateDb',valueToInsert,ClientsName,Restaurant,tmpval,tmpval1); 
+  alert("Data updated");
   }
 
 
