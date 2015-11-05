@@ -12,7 +12,7 @@ Meteor.methods({
        var query2={};
        var query3={};
        var query4={};
-       query["private."+Restaurant+".name"]=ClientsName;
+       query["private."+Restaurant+".clientName"]=ClientsName;
        query2["private."+Restaurant]=tmpval;
        query4["public."+Restaurant]=tmpval1;
        query3["name"]=ClientsName;
@@ -34,19 +34,20 @@ Meteor.methods({
         ClientChoice.update({name:ClientsName},{$set: query2});
         ClientChoice.update({name:ClientsName},{$set: query4});
        }
+       Router.go('/');
        },
 
     'updateDb':function(valueToInsert,ClientsName,Restaurant,tmpval,tmpval1){
       //constructing query with dynamic field name
-       console.log("working 2");
        var query={};       
        var query2={};
        var query4={};
-       query["private."+Restaurant+".name"]=ClientsName;
+       query["private."+Restaurant+".clientName"]=ClientsName;
        query2["private."+Restaurant]=tmpval;
        query4["public."+Restaurant]=tmpval1;
        var rest_exists=ClientChoice.findOne(query);
        if(rest_exists){
+        console.log("working");
         ClientChoice.update({name:ClientsName},{$set: query2});
         ClientChoice.update({name:ClientsName},{$set: query4});       }
        }

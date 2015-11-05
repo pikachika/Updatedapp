@@ -3,10 +3,11 @@
 
 
 {{#with pullData}}
-<a class="linktohome" href="/" style="color:green">Home</a>
-<br><br>
 
 <div class="DataFromDb">
+
+<a class="linktohome" href="/" style="color:green" >Home</a>
+<br><br>
 
    <span> Name :</span>
       <input type="text" name="clientname" value="{{name}}" disabled>
@@ -15,18 +16,18 @@
 
 <span>Select Restaurant :</span>
    <select class="restaurantList" id="restaurants" name="restaurantlist"  >
-    <option value="{{extractRestaurantList '0'}}" >{{extractRestaurantList '0'}} </option>
+    <option name="restaurantlist1" value="{{extractRestaurantList '0'}}" >{{extractRestaurantList '0'}} </option>
     <option value="{{extractRestaurantList '1'}}" >{{extractRestaurantList '1'}} </option>
     <option value="{{extractRestaurantList '2'}}" >{{extractRestaurantList '2'}} </option>
     </select>
 
 
-  <input  type="text" class="RestaurantNamehidden" name="RestaurantName" value={{extractRestaurantName 'default'}} style="display:none" disabled>
-        <br><br>
 
        <input type='button' class="edit" name="edit_btn" value='Edit' >
 
        <input type='submit' class="submit" value='Update' >
+
+       <input type='button' class="addRestaurant" value='Add Restaurant' > 
 
    <fieldset id="field" class="field" disabled>
     <span>Root Url :</span>
@@ -54,15 +55,32 @@
     <input  name="WebsheetsURL" value={{restaurantData 'private' 'websheetsUrl'}} >
       <br><br>
 
-   <span>Online Payment :</span>
-      <input name="OnlinePayment" value={{restaurantData 'public' 'onlinePayment'}} >  
-     <br><br> 
+    {{#if displayEditOptions}}
+       Online Payment :
+      <input type="radio" id="enableOnlinePayment" name="OnlinePayment" value="Enabled"  checked={{RadioSelection 'public' 'onlinePayment' 'disableOnlinePayment'}}  > Enabled      
+      <input type="radio" id="disableOnlinePayment" name="OnlinePayment" value="Disabled" > Disabled
+      {{/if}}
+     
+       {{#if displayTextBox}}
+       <span>Online Payment :</span>
+       <input id="onlinePaymenttextbox" name="OnlinePayment" value={{restaurantData 'public' 'onlinePayment'}} > 
+       {{/if}}
+       <br><br> 
+      
 
+      {{#if displayEditOptions}}
+       Payment Processor:
+      <input type="radio" id="stripeProcessor" name="PaymentProcessor" value="Stripe" checked={{RadioSelection 'public' 'paymentProcessor' 'otherProcessor'}}  > Stripe
+      <input type="radio" id="otherProcessor" name="PaymentProcessor" value="Other" > Other
+      {{/if}}
+
+    {{#if displayTextBox}}
     <span>Payment Processor:</span>
-      <input name="PaymentProcessor" value={{restaurantData 'public' 'paymentProcessor'}} >  
+      <input name="PaymentProcessor" value={{restaurantData 'public' 'paymentProcessor'}} > 
+      {{/if}} 
       <br><br>
            
-    <span>Payment Processor Details</span><br><br>
+    <span><b>Payment Processor Details</b></span><br><br>
     <span>Private Key :</span>
            <input name="PrivateKey" value={{extractDataDetails 'private' 'paymentProcessor' 'privateKey'}} >  
      <br><br> 
@@ -73,25 +91,53 @@
          <input name="ApiVersion" value={{extractDataDetails 'private' 'paymentProcessor' 'apiVersion'}} >  
 <br><br>
 
-    <span>Sms :</span>  
+    
+    {{#if displayEditOptions}} 
+     <label>  
+        Sms :    
+        <input type="radio" id="enableSms" name="sms" value="Enabled"  checked={{RadioSelection 'private' 'sms' 'disableSms'}}  > Enabled      
+        <input type="radio" id="disableSms" name="sms" value="Disabled" checked="checked" > Disabled
+        <br>
+        <br> Sms Customer :
+        <input type="radio" id="enableCustomersms" name="smsCustomer" value="Enabled" checked={{RadioSelection 'private'            'smsCustomer' 'disableCustomersms' }} > Enabled
+        <input type="radio" id="disableCustomersms" name="smsCustomer" value="Disabled"  checked="checked"> Disabled
+        <br>
+        <br> Sms Client :
+        <input type="radio" id="enableClientsms" name="smsClient" value="Enabled" checked={{RadioSelection 'private' 'smsClient'  'disableClientsms'}} > Enabled
+        <input type="radio" id="disableClientsms" name="smsClient" value="Disabled"  checked="checked"> Disabled
+        <br>
+        <br> Sms WebMaster :
+        <input type="radio" id="enableWebMastersms" name="smsWebMaster" value="Enabled" checked={{RadioSelection 'private' 'smsWebMaster' 'disableWebMastersms'}}> Enabled
+        <input type="radio" id="disableWebMastersms" name="smsWebMaster" value="Disabled"  checked="checked"> Disabled
+        <br>
+        <br> Sms Processor :
+        <input type="radio" id="sendGridProcessorsms" name="smsProcessor" value="SendGrid" checked={{RadioSelection 'private' 'smsProcessor' 'twilioProcessorsms'}}> SendGrid
+        <input type="radio" id="twilioProcessorsms" name="smsProcessor" value="Twilio" checked="checked" > Twilio
+        </label>
+        <br> <br>
+    {{/if}}
+
+      {{#if displayTextBox}}
+      <span>Sms :</span> 
       <input name="sms" value={{restaurantData 'private' 'sms'}} >
       <br><br>
 
-      <span>Sms Customer :</span>  
-      <input name="smsCustomer" value={{restaurantData 'private' 'smsCustomer'}} >
+      <span>Sms Customer :</span> 
+      <input  name="smsCustomer" value={{restaurantData 'private' 'smsCustomer'}} >
       <br><br>
 
-      <span>Sms Client :</span>  
+      <span>Sms Client :</span> 
       <input name="smsClient" value={{restaurantData 'private' 'smsClient'}} >
       <br><br>
 
-      <span>Sms WebMaster :</span>  
+      <span>Sms WebMaster :</span> 
       <input name="smsWebMaster" value={{restaurantData 'private' 'smsWebMaster'}} >
       <br><br>
 
-      <span>Sms Processor :</span>  
+      <span>Sms Processor :</span> 
       <input name="smsProcessor" value={{restaurantData 'private' 'smsProcessor'}} >
       <br><br>
+      {{/if}}
       
       <span>Sms WebMaster Phone Number :</span>  
       <input name="smsWebMasterPhone" value={{restaurantData 'private' 'smsWebmasterPhoneNumber'}} >
@@ -112,8 +158,33 @@
       <br><br>
 
 
+
+      {{#if displayEditOptions}} 
+        Email :
+        <input type="radio" id="enableEmail" name="email" value="Enabled"  checked={{RadioSelection 'private' 'email' 'disableEmail'}} > Enabled
+        <input type="radio" id="disableEmail" name="email" value="Disabled"  > Disabled
+        <br>
+        <br> Email Customer :
+        <input type="radio" id="enableEmailCustomer" name="EmailCustomer" value="Enabled" checked={{RadioSelection 'private'        'emailCustomer' 'disableEmailCustomer'}}> Enabled
+        <input type="radio" id="disableEmailCustomer" name="EmailCustomer" value="Disabled"  > Disabled
+        <br>
+        <br> Email Client :
+        <input type="radio" id="enableEmailClient" name="EmailClient" value="Enabled" checked={{RadioSelection 'private' 'emailClient' 'disableEmailClient'}}> Enabled
+        <input type="radio" id="disableEmailClient" name="EmailClient" value="Disabled"  > Disabled
+        <br>
+        <br> Email WebMaster :
+        <input type="radio" id="enableWebMasteremail" name="emailWebMaster" value="Enabled" checked={{RadioSelection 'private' 'emailWebmaster' 'disableWebMasteremail'}}> Enabled
+        <input type="radio" id="disableWebMasteremail" name="emailWebMaster" value="Disabled"  > Disabled
+        <br>
+        <br> Email Processor :
+        <input type="radio" id="mailgunProcessoremail" name="emailProcessor" value="Mailgun" checked={{RadioSelection 'private' 'emailProcessor' 'otherProcessoremail'}} > Mailgun
+        <input type="radio" id="otherProcessoremail" name="emailProcessor" value="Other"  > Other
+        <br><br>
+       {{/if}}  
+
+       {{#if displayTextBox}}
        <span>Email :</span>  
-      <input name="email" value={{restaurantData 'private' 'email'}} >
+      <input  name="email" value={{restaurantData 'private' 'email'}} >
       <br><br>
 
       <span>Email Customer :</span>  
@@ -131,9 +202,10 @@
       <span>Email Processor :</span>  
       <input name="emailProcessor" value={{restaurantData 'private' 'emailProcessor'}} >
       <br><br>
+      {{/if}}
 
-      <span>Email Addresses</span>
-      <br>
+      <span><b>Email Addresses</b></span>
+      <br><br>
 
       <span>From Email :</span>  
       <input name="FromEmail" value={{restaurantData 'private' 'emailFromAddress'}} >
@@ -147,8 +219,8 @@
       <input name="WebMasterEmail" value={{restaurantData 'private' 'emailWebmasterAddress'}} >
       <br><br>
 
-      <span>Email Processor details</span>
-      <br>
+      <span><b>Email Processor details</b></span>
+      <br><br>
 
       <span>API Key :</span>  
       <input name="APIKey" value={{extractDataSms 'private' 'emailProcessor' 'apiKey'}}  >
@@ -158,14 +230,38 @@
       <input name="DomainName" value={{extractDataSms 'private' 'emailProcessor' 'domainName'}} >
       <br><br>
 
+      
+
+      {{#if displayEditOptions}} 
+      Printer :
+      <input type="radio" id="enablePrinter" name="Printer" value="Enabled"  checked={{RadioSelection 'private' 'printer' 'disablePrinter'}}> Enabled
+      <input type="radio" id="disablePrinter" name="Printer" value="Disabled" > Disabled
+      <br><br>Printer Processor :
+      <input type="radio" id="printerProcessor" name="PrinterProcessor" value="XXXX" checked={{RadioSelection 'private'             'printerProcessor' 'noPrinterProcessor'}} > XXXX
+      <input type="radio" id="noPrinterProcessor" name="PrinterProcessor" value="Nothing"  > Nothing
+      <br><br>
+      {{/if}}
+      
+      {{#if displayTextBox}}
       <span>Printer :</span>  
       <input name="Printer" value={{restaurantData 'private' 'printer'}} >
       <br><br>
-
       <span>Printer Processor:</span>  
       <input name="PrinterProcessor" value={{restaurantData 'private' 'printerProcessor'}} >
       <br><br>
+      {{/if}}
 
+      {{#if displayEditOptions}} 
+      Order :
+      <input type="radio" id="enableOrderSystem" name="OrderSystem" value="Enabled" checked={{RadioSelection 'private' 'orderSystem' 'disableOrderSystem'}} > Enabled
+      <input type="radio" id="disableOrderSystem" name="OrderSystem" value="Disabled"  > Disabled
+      <br><br>Order Processor :
+      <input type="radio" id="orderProcessor" name="OrderProcessor" value="XXXX" checked={{RadioSelection 'private' 'orderProcessor' 'noOrderProcessor'}}> XXXX
+      <input type="radio" id="noOrderProcessor" name="OrderProcessor" value="Nothing"  > Nothing
+      <br><br>
+      {{/if}}
+
+      {{#if displayTextBox}}
       <span>Order System:</span>  
       <input name="OrderSystem" value={{restaurantData 'private' 'orderSystem'}} >
       <br><br>
@@ -173,7 +269,7 @@
       <span>Order Processor:</span>  
       <input name="OrderProcessor" value={{restaurantData 'private' 'orderProcessor'}} >
       <br><br>
-
+      {{/if}}
 </fieldset>
 
        <br><br>

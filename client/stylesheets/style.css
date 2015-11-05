@@ -6,6 +6,12 @@ fieldset[disabled]{
     opacity: 0.6;
 }
 
+input[type="radio"] {
+  margin-right: 10;
+  display: inline;
+  position: relative;
+}
+
 input:focus, textarea:focus { 
     background-color: rgb(224,224,224) ;
     overflow: hidden; 
@@ -17,10 +23,10 @@ input:focus, textarea:focus {
 }
 
 
-.submit , .reset ,.edit{
+.submit , .reset ,.edit,.addRestaurant{
     overflow: hidden;
     float: left;
-    width: 95px; /* setting the width */
+    width: 100px; /* setting the width */
     margin: 10px; /* this will center  it */
     height: 38px;
     border: 1px solid #66661A;
@@ -98,7 +104,7 @@ span,label,td{
 .DataFromDb {   
     padding-right: 350px;
     padding-top: 50px;
-    padding-bottom: 120%;
+    padding-bottom: 125%;
     padding-left: 500px;
     background:#202020;
 }
