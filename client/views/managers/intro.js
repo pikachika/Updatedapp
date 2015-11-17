@@ -1,11 +1,10 @@
 Meteor.methods({
     'Searchindb': function(ClientsName) {
-        searchdata = ClientChoice.findOne({
+        client_exists = ClientChoice.findOne({
             name: ClientsName
         });
-        if (searchdata != null) {
+        if (client_exists != null) {
             //redirecting to userdata display page
-            Session.set("toSearchData", searchdata);
             RestaurantName = undefined;
             Session.set("RestaurantNameVar", RestaurantName);
             Router.go('/userInfo');

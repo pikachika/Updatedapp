@@ -27,6 +27,10 @@ Template.userInfo.helpers({
 
 
     'pullData': function() {
+         searchdata = ClientChoice.findOne({
+            name: ClientsName
+        });
+        Session.set("toSearchData", searchdata);
         dataObtained = Session.get("toSearchData");
         Session.set("displayEditOptions", false);
         Session.set("displayTextBox", true);
@@ -90,16 +94,6 @@ Template.userInfo.events({
         Session.set("RestaurantNameVar", RestaurantName);
         Session.set("displayTextBox", true);
         Session.set("displayEditOptions", false);
-        //to pull most updated data from db after every update
-        UpdateStatus = Session.get("justEdited");
-        if (UpdateStatus == true) {
-            searchdata = ClientChoice.findOne({
-                name: ClientsName
-            });
-            Session.set("toSearchData", searchdata);
-            dataObtained = Session.get("toSearchData");
-            Session.set("justEdited", false);
-        }
     },
 
     'click .edit': function(event) {
@@ -224,7 +218,6 @@ Template.userInfo.events({
         Session.set("displayEditOptions", false);
         Session.set("displayTextBox", true);
         alert("Data updated");
-        Session.set("justEdited", true);
     }
 
 });

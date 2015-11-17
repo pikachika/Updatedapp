@@ -11,3 +11,4 @@ iron:router
 deps
 tracker
 jquery
+twbs:bootstrap

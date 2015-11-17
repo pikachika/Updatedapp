@@ -2,6 +2,8 @@
 <form name="userinfo">
 
 
+
+
 {{#with pullData}}
 
 <div class="DataFromDb">
@@ -56,7 +58,7 @@
       <br><br>
 
     {{#if displayEditOptions}}
-       Online Payment :
+       <span>Online Payment :</span>
       <input type="radio" id="enableOnlinePayment" name="OnlinePayment" value="Enabled"  checked={{RadioSelection 'public' 'onlinePayment' 'disableOnlinePayment'}}  > Enabled      
       <input type="radio" id="disableOnlinePayment" name="OnlinePayment" value="Disabled" > Disabled
       {{/if}}
@@ -69,7 +71,7 @@
       
 
       {{#if displayEditOptions}}
-       Payment Processor:
+       <span>Payment Processor:</span>
       <input type="radio" id="stripeProcessor" name="PaymentProcessor" value="Stripe" checked={{RadioSelection 'public' 'paymentProcessor' 'otherProcessor'}}  > Stripe
       <input type="radio" id="otherProcessor" name="PaymentProcessor" value="Other" > Other
       {{/if}}
@@ -94,23 +96,27 @@
     
     {{#if displayEditOptions}} 
      <label>  
-        Sms :    
+        <span>Sms :</span>
         <input type="radio" id="enableSms" name="sms" value="Enabled"  checked={{RadioSelection 'private' 'sms' 'disableSms'}}  > Enabled      
         <input type="radio" id="disableSms" name="sms" value="Disabled" checked="checked" > Disabled
         <br>
-        <br> Sms Customer :
+        <br> 
+        <span>Sms Customer :</span>
         <input type="radio" id="enableCustomersms" name="smsCustomer" value="Enabled" checked={{RadioSelection 'private'            'smsCustomer' 'disableCustomersms' }} > Enabled
         <input type="radio" id="disableCustomersms" name="smsCustomer" value="Disabled"  checked="checked"> Disabled
         <br>
-        <br> Sms Client :
+        <br>
+        <span> Sms Client :</span>
         <input type="radio" id="enableClientsms" name="smsClient" value="Enabled" checked={{RadioSelection 'private' 'smsClient'  'disableClientsms'}} > Enabled
         <input type="radio" id="disableClientsms" name="smsClient" value="Disabled"  checked="checked"> Disabled
         <br>
-        <br> Sms WebMaster :
+        <br> 
+        <span>Sms WebMaster :</span>
         <input type="radio" id="enableWebMastersms" name="smsWebMaster" value="Enabled" checked={{RadioSelection 'private' 'smsWebMaster' 'disableWebMastersms'}}> Enabled
         <input type="radio" id="disableWebMastersms" name="smsWebMaster" value="Disabled"  checked="checked"> Disabled
         <br>
-        <br> Sms Processor :
+        <br> 
+        <span>Sms Processor :</span>
         <input type="radio" id="sendGridProcessorsms" name="smsProcessor" value="SendGrid" checked={{RadioSelection 'private' 'smsProcessor' 'twilioProcessorsms'}}> SendGrid
         <input type="radio" id="twilioProcessorsms" name="smsProcessor" value="Twilio" checked="checked" > Twilio
         </label>
@@ -160,23 +166,27 @@
 
 
       {{#if displayEditOptions}} 
-        Email :
+        <span>Email :</span>
         <input type="radio" id="enableEmail" name="email" value="Enabled"  checked={{RadioSelection 'private' 'email' 'disableEmail'}} > Enabled
         <input type="radio" id="disableEmail" name="email" value="Disabled"  > Disabled
         <br>
-        <br> Email Customer :
+        <br> 
+        <span>Email Customer :</span>
         <input type="radio" id="enableEmailCustomer" name="EmailCustomer" value="Enabled" checked={{RadioSelection 'private'        'emailCustomer' 'disableEmailCustomer'}}> Enabled
         <input type="radio" id="disableEmailCustomer" name="EmailCustomer" value="Disabled"  > Disabled
         <br>
-        <br> Email Client :
+        <br> 
+        <span>Email Client :</span>
         <input type="radio" id="enableEmailClient" name="EmailClient" value="Enabled" checked={{RadioSelection 'private' 'emailClient' 'disableEmailClient'}}> Enabled
         <input type="radio" id="disableEmailClient" name="EmailClient" value="Disabled"  > Disabled
         <br>
-        <br> Email WebMaster :
+        <br> 
+        <span>Email WebMaster :</span>
         <input type="radio" id="enableWebMasteremail" name="emailWebMaster" value="Enabled" checked={{RadioSelection 'private' 'emailWebmaster' 'disableWebMasteremail'}}> Enabled
         <input type="radio" id="disableWebMasteremail" name="emailWebMaster" value="Disabled"  > Disabled
         <br>
-        <br> Email Processor :
+        <br> 
+        <span>Email Processor :</span>
         <input type="radio" id="mailgunProcessoremail" name="emailProcessor" value="Mailgun" checked={{RadioSelection 'private' 'emailProcessor' 'otherProcessoremail'}} > Mailgun
         <input type="radio" id="otherProcessoremail" name="emailProcessor" value="Other"  > Other
         <br><br>
@@ -233,10 +243,11 @@
       
 
       {{#if displayEditOptions}} 
-      Printer :
+      <span>Printer :</span>
       <input type="radio" id="enablePrinter" name="Printer" value="Enabled"  checked={{RadioSelection 'private' 'printer' 'disablePrinter'}}> Enabled
       <input type="radio" id="disablePrinter" name="Printer" value="Disabled" > Disabled
-      <br><br>Printer Processor :
+      <br><br>
+      <span>Printer Processor :</span>
       <input type="radio" id="printerProcessor" name="PrinterProcessor" value="XXXX" checked={{RadioSelection 'private'             'printerProcessor' 'noPrinterProcessor'}} > XXXX
       <input type="radio" id="noPrinterProcessor" name="PrinterProcessor" value="Nothing"  > Nothing
       <br><br>
@@ -252,10 +263,11 @@
       {{/if}}
 
       {{#if displayEditOptions}} 
-      Order :
+      <span>Order :</span>
       <input type="radio" id="enableOrderSystem" name="OrderSystem" value="Enabled" checked={{RadioSelection 'private' 'orderSystem' 'disableOrderSystem'}} > Enabled
       <input type="radio" id="disableOrderSystem" name="OrderSystem" value="Disabled"  > Disabled
-      <br><br>Order Processor :
+      <br><br>
+      <span>Order Processor :</span>
       <input type="radio" id="orderProcessor" name="OrderProcessor" value="XXXX" checked={{RadioSelection 'private' 'orderProcessor' 'noOrderProcessor'}}> XXXX
       <input type="radio" id="noOrderProcessor" name="OrderProcessor" value="Nothing"  > Nothing
       <br><br>

@@ -1,8 +1,3 @@
-Router.route('/myForm');
-Router.route('/userInfo');
-Router.route('/', {
-    template: 'intro'
-});
 
 
 Meteor.methods({
