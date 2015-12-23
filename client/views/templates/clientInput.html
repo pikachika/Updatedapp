@@ -1,9 +1,12 @@
 <template name="clientInput">
 
-<a href="/" style="color:green" >Home</a>
+<a class="glyphicon glyphicon-home" href="/" >Home </a>
 <br><br>
 
-   <span> Client Name :</span>
+<div class="@container-desktop">
+{{#with textbox}}
+
+   <span> {{KeyName}}</span>
       <input type="text" class="ClientName" name="clientname" value="" required>
    <br><br>
 
@@ -40,4 +43,7 @@
    <span>Websheets Url :</span>
     <input type="url" class="websheetsUrl" name="WebsheetsURL" value="" required>
       <br><br>
+
+      {{/with}}
+ </div>     
 </template>

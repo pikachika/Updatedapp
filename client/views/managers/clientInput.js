@@ -2,8 +2,15 @@ Template.clientInput.helpers({
 
   'displayCurrency' : function(){
     return Session.get("toDisplayCurrencyCode");
-  }
+  },
 
+'textbox': function() {
+        querydata = MetaData.findOne({});
+        console.log(querydata);
+        Session.set("textboxData", querydata);
+        dataObtained = Session.get("textboxData");
+        return dataObtained;
+    }
 });
 
 Template.clientInput.events({

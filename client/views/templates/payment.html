@@ -1,33 +1,40 @@
  <template name="payment">
-   <span>Online Payment :</span>
-   <label>
-      <input type="radio" class="enableOnlinePayment" name="OnlinePayment" value="Enabled"  required > Enabled      
+
+<div class="@container-desktop">
+     <span> Online Payment : </span>
+    <label class="radio-inline">
+      <input type="radio" class="enableOnlinePayment" name="OnlinePayment" value="Enabled"  required > Enabled  
+    </label>
+
+
+   <label class="radio-inline"> 
       <input type="radio" class="disableOnlinePayment" name="OnlinePayment" value="Disabled" > Disabled
-  </label>
+   </label>
      <br><br> 
 
    {{#if displayPaymentDetails}}
     <span>Payment Processor:</span>
-    <label>
+    <label class="radio-inline">
       <input type="radio" class="stripeProcessor" name="PaymentProcessor" value="Stripe" required > Stripe
+    </label>
+    <label class="radio-inline">
       <input type="radio" class="otherProcessor" name="PaymentProcessor" value="Other" > Other
-      </label>
+    </label>
       <br><br>
       
      
        
-     <td>
-        <tr><span>Payment Processor Details</span><br>
-          <br> Private Key :
+     <span>Payment Processor Details</span><br>
+      <span> Private Key :</span>
           <input type="text" class="privateKey" name="PrivateKey" value="" required>
-        </tr>
-        <br>
-      <tr> Public Key:
+        <br><br>
+     <span> Public Key : </span>
          <input type="text" class="publicKey" name="PublicKey" value="" required>
-      </tr><br>
-      <tr>API version :
+      <br><br>
+    <span> API version : </span>
          <input type="text" class="apiVersion" name="ApiVersion" value="" required>
-      </tr><br>
-      </td><br>   
+     <br><br>   
      {{/if}}
+
+     </div>
      </template>

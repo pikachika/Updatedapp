@@ -1,17 +1,30 @@
 <template name="intro">
-<form name="introForm">
+<form name="introForm" class="homepageElements" >
 <div class="ClientNameSearch" >
-<br><br>
-      <input type="text" class="ClientNameInput" name="clientsName" value="" placeholder=" Client Name " required>
-   <br><br><br><br>
-
-    <input type='submit' class="submitButton" value='Get Setting Info' >
-    <br><br>
-
-    <input type="button" class="addData_btn" onclick="location.href='{{pathFor route='myForm'}}';" value="Add Restaurant" />
 
 
-</div>
- 
- </form>
+<div class="form-group">
+    <input type="text" class="form-control" id="inputClientName" name="clientsName" placeholder=" Client Name " required >
+ </div>
+  
+
+   <br><br><br>
+
+    <div class="form-group">
+   <button type="submit" class="btn btn-primary" > Get Setting Info</button>
+   </div>
+    <br>
+
+   <div class="form-group">
+   <button type="button" class="btn btn-primary" onclick="location.href='{{pathFor route='myForm'}}';" > Add Restaurant</button>
+   </div>
+ </div>
+
+
+
+<footer>
+    Powered by <a href="http://websheets.io/">WebSheets™</a>
+</footer>
+</form>
+
  </template>

@@ -1,7 +1,12 @@
 <template name="sms">
+<div class="@container-desktop">
     <span>Sms :</span>
-    <label>
-      <input type="radio" class="enableSms" name="sms" value="Enabled"  required > Enabled      
+    
+    <label class="radio-inline">
+      <input type="radio" class="enableSms" name="sms" value="Enabled"  required > Enabled   
+    </label>
+
+    <label class="radio-inline">
       <input type="radio" class="disableSms" name="sms" value="Disabled" > Disabled
     </label>   
       <br>
@@ -9,56 +14,74 @@
       
         {{#if displaySms}}
         <div id="smsDetails"  >  
-        <label>      
-        Sms Customer :
+        <span> Sms Customer :</span>
+
+        <label class="radio-inline">
         <input type="radio" class="enableCustomersms" name="smsCustomer" value="Enabled" required> Enabled
+        </label>
+
+        <label class="radio-inline">
         <input type="radio" class="disableCustomersms" name="smsCustomer" value="Disabled"> Disabled
+        </label>
         <br>
-        <br> Sms Client :
+        <br>
+        <span> Sms Client : </span>
+
+        <label class="radio-inline">
         <input type="radio" class="enableClientsms" name="smsClient" value="Enabled" required> Enabled
+        </label>
+
+        <label class="radio-inline">
         <input type="radio" class="disableClientsms" name="smsClient" value="Disabled"> Disabled
+        </label>
         <br>
-        <br> Sms WebMaster :
+        <br>
+        <span> Sms WebMaster :</span>
+        <label class="radio-inline">
         <input type="radio" class="enableWebMastersms" name="smsWebMaster" value="Enabled" required> Enabled
+        </label>
+
+        <label class="radio-inline">
         <input type="radio" class="disableWebMastersms" name="smsWebMaster" value="Disabled" > Disabled
+        </label>
         <br>
-        <br> Sms Processor :
+        <br> 
+        <span> Sms Processor :</span>
+        <label class="radio-inline">
         <input type="radio" class="sendGridProcessorsms" name="smsProcessor" value="SendGrid" required> SendGrid
+        </label>
+
+        <label class="radio-inline">
         <input type="radio" class="twilioProcessorsms" name="smsProcessor" value="Twilio" > Twilio
         </label>
+
         <br>
         <br>
         </div>
         {{/if}}
          
       {{#if displayWebMasterPhone}}
-        <td id="webmasterPhoneNumber" >
-          Sms WebMaster Phone Number :
+        <span>Sms WebMaster PhoneNo :</span>        
           <input type="tel" class="webmasterPhone" name="smsWebMasterPhone" value="" required>
           <br>
           <br>
-        </td>
       {{/if}}
 
       {{#if displaySmsProcessorDetails}}   
        <div id="smsProcessorDetails" >
-        <td>
           <span>Sms Processor details</span><br>
-          <tr>Account SID :
+          <span>Account SID :</span>
             <input type="text" class="accountSid" name="AccSID" value="" required>
-          </tr>
-          <br>
+          <br><br>
 
-          <tr>Auth Token :
+          <span>Auth Token :</span>
             <input type="text" class="authToken" name="AuthToken" value="" required>
-          </tr>
-          <br>
+          <br><br>
 
-          <tr>Phone Number :
+          <span>Phone Number :</span>
             <input type="number" class="phoneNumber" name="PhoneNumber" value="" required>
-          </tr>
-        </td>
-        <br>
+        <br><br>
        </div>
       {{/if}}
+  </div>
 </template>

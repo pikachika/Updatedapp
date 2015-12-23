@@ -2,19 +2,16 @@
 <form name="userinfo">
 
 
-
-
 {{#with pullData}}
 
 <div class="DataFromDb">
 
-<a class="linktohome" href="/" style="color:green" >Home</a>
+<a class="glyphicon glyphicon-home" href="/" >Home </a>
 <br><br>
 
    <span> Name :</span>
       <input type="text" name="clientname" value="{{name}}" disabled>
    <br><br>
-
 
 <span>Select Restaurant :</span>
    <select class="restaurantList" id="restaurants" name="restaurantlist"  >
@@ -22,14 +19,18 @@
     <option value="{{extractRestaurantList '1'}}" >{{extractRestaurantList '1'}} </option>
     <option value="{{extractRestaurantList '2'}}" >{{extractRestaurantList '2'}} </option>
     </select>
+<br><br>
 
 
-
-       <input type='button' class="edit" name="edit_btn" value='Edit' >
-
-       <input type='submit' class="submit" value='Update' >
-
-       <input type='button' class="addRestaurant" value='Add Restaurant' > 
+ <div class="btn-toolbar" >
+   <input type="button" class="btn btn-primary" id="edit" value='Edit' >
+   
+   <input type="submit" class="btn btn-success"  id="submit" value='Update'>
+   
+   <input type="button" class="btn btn-primary"  id="addRestaurant" value='Add Restaurant ' >
+   
+</div>
+<br>
 
    <fieldset id="field" class="field" disabled>
     <span>Root Url :</span>
@@ -285,9 +286,14 @@
 </fieldset>
 
        <br><br>
-       <input type='button' class="edit" name="edit_btn" value='Edit' ><br><br>
+  
+  <div class="btn-toolbar" >
 
-       <input type='submit' class="submit" value='Update' >
+   <input type="button" class="btn btn-primary" id="edit" value='Edit' > 
+   
+   <input type="submit" class="btn btn-success"  id="submit" value='Update'>  
+    </div>
+
 </div>
 {{/with}}
 </form>

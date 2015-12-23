@@ -96,14 +96,14 @@ Template.userInfo.events({
         Session.set("displayEditOptions", false);
     },
 
-    'click .edit': function(event) {
+    'click #edit': function(event) {
         event.preventDefault();
         document.getElementById("field").disabled = false;
         Session.set("displayEditOptions", true);
         Session.set("displayTextBox", false);
     },
 
-    'click .addRestaurant': function(event) {
+    'click #addRestaurant': function(event) {
         event.preventDefault();
         Router.go('/myForm');
     },

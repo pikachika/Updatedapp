@@ -1,5 +1,6 @@
 Meteor.methods({
     'Searchindb': function(ClientsName) {
+        console.log("w");
         client_exists = ClientChoice.findOne({
             name: ClientsName
         });
