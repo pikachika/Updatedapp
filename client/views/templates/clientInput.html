@@ -1,49 +1,66 @@
-<template name="clientInput">
 
+  <template class="clientinput" name="clientInput">
+
+ <form id="clientinput" name="clientInput" class="FormElements" autocomplete="off" onsubmit="alert('Your preferences have been saved')">
 <a class="glyphicon glyphicon-home" href="/" >Home </a>
 <br><br>
 
-<div class="@container-desktop">
-{{#with textbox}}
+<div class="@container-desktop" id="main">
 
-   <span> {{KeyName}}</span>
+
+
+   <span> Name :</span>
       <input type="text" class="ClientName" name="clientname" value="" required>
    <br><br>
 
-    <span>Restaurant Name :</span>
-      <input type="text" class="restaurant" name="RestaurantName" value="" required>
-      <br><br>
+   <fieldset id="restaurant_field" class="field" disabled>
 
-    <span>Root Url :</span>
-      <input type="url" class="rootUrl" name="RootUrl" value="" required>
-      <br><br>
-  
-   <span>Image Formatter :</span>
-      <input type="url" class="imageFormatter" name="ImageFormatter" value="" autocomplete="on" required>
+  <span> Restaurant :</span>
+      <input type="text" class="RestaurantName" name="restaurant" value="" required>
    <br><br>
 
-   <span>Country Code :</span>
-   <select class="countryCode" id="country" name="CountryCodes"  >
-    <option value="" hidden></option>
-    <option value="US">US</option>
-    <option value="UK">UK</option>
-    <option value="AU">AU</option>
-    <option value="IN">IN</option>
-    <option value="CA">CA</option>
-    </select><br><br>
+   </fieldset>
 
-   <span>Currency Code:</span>
-   <input type="text" class="currencyCode" name="CurrencyCode" value={{displayCurrency}} >
-   <br><br>
+   <fieldset id="clientinput_field" class="field" disabled>
 
-   <span>GMT Offset:</span>
-   <input type="number" class="gmtoffset" name="GMTOffset" value="">
-   <br><br> 
- 
-   <span>Websheets Url :</span>
-    <input type="url" class="websheetsUrl" name="WebsheetsURL" value="" required>
+{{#each extractKeyname 'textbox'}}
+
+    <span>{{KeyName}} :</span>
+      <input type="text" class={{KeyName}}  name={{KeyName}} tagname={{Security}} value="" >
       <br><br>
+{{{extractParentKeyname KeyName}}}
+  {{nestedobj_creation KeyName}}
+      {{/each}}
 
-      {{/with}}
- </div>     
+
+<div class="fieldgroup">
+
+{{#each extractKeyname 'radio'}}
+<dl>
+    <dt id={{KeyName}} >{{ KeyName }} </dt>
+    <dd>
+      <input type="radio" class=enable{{KeyName}}    id=1{{KeyName}} name={{KeyName}} value={{KeyName}} tagname={{Security}}   > 
+      <label for={{KeyName}} id={{KeyName}} > {{{extractKeynameValue KeyName}}} </label>
+       <input type="radio" class=disable{{KeyName}}  id=2{{KeyName}} name={{KeyName}} value={{KeyName}}  tagname={{Security}}  > 
+       <label for={{KeyName}} id={{KeyName}} > {{{extractKeynameValue1 KeyName}}} </label>  
+
+      </dd>
+      </dl>
+      <br class={{KeyName}} > 
+      
+   {{nestedobj_creation KeyName}}
+   
+      {{/each}} 
+</div>
+
+{{db_insertion}}
+{{hide_radio}}
+ </fieldset>
+
+
+ <input type='submit' class="btn btn-success"   value='Submit' onclick={{submitfn}}> &nbsp;
+ <input type='reset' class="btn btn-warning" name="reset_btn" value='Reset' >
+ </div>  
+
+    </form>
 </template>

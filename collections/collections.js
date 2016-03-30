@@ -1,2 +1,2 @@
 ClientChoice= new Mongo.Collection("clientChoice");
-MetaData= new Mongo.Collection("Metadata");
+settingsmetadata= new Mongo.Collection("settings");
